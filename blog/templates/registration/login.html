@@ -1,0 +1,16 @@
+
+{% extends "app1/index.html" %}
+
+{% block content %}
+<h1>LOGIN</h1>
+<form action="" method='POST'>
+    {% csrf_token %}
+    {% for row in form %}
+        <p>{{row.label_tag}}</p>
+        <p>{{row}}</p> 
+        <p>{{row.errors|striptags}}</p>
+    {% endfor %}
+    <button type='submit'>Submit</button>
+</form>
+<a href="{% url 'register' %}">Create an account</a>
+{% endblock  %}
