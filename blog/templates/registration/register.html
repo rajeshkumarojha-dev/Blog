@@ -1,16 +1,19 @@
 {% extends "app1/index.html" %}
 
 {% block content %}
-<h1>Register</h1>
+<div class="form-container">
+<h1 class='auth'>Register</h1>
 <form action="" method='POST'>
     {% csrf_token %}
     {% for row in form %}
         <p>{{row.label_tag}}</p>
-        <p>{{row}}</p> 
+        <p class='form-control' aria-label="Username" aria-describedby="addon-wrapping" style={{'width: 100%;'}}>{{row}}</p> 
         <p>{{row.errors|striptags}}</p>
     {% endfor %}
-    <button type='submit'>Submit</button>
+    <button type='submit' class="btn btn-primary">Submit</button>
 </form>
-<a href="{% url 'login' %}">LOGIN</a>
+<span>Already have account.. <a href="{% url 'login' %}" class="link-warning link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">LOGIN</a></span>
+</div>
+
 
 {% endblock  %}
